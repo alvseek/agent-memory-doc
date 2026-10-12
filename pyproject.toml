@@ -1,0 +1,32 @@
+[project]
+name = "agent-memory-doc"
+version = "0.1.0"
+description = "agent-memory-doc (hermod-doc) - the documentation-generation cluster of the agent-memory framework (the five doc generators and their shared discovery contract) and its compile/install tooling, a peer of the memory core, the coding overlay, the fleet, the wizards and the localization lane."
+readme = "README.md"
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE"]
+authors = [
+    { name = "Alviandi Widiasto", email = "alviandi@msn.com" }
+]
+requires-python = ">=3.12"
+
+# This repo ships markdown procedures + the compile/install tooling, not an installable
+# package - so it is never built/distributed.
+[tool.uv]
+package = false
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "ruff>=0.16.2",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]  # pycodestyle, pyflakes, isort
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
